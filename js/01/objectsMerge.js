@@ -1,6 +1,6 @@
 
-function objectsMerge (...z) {
-    return z.forEach((element, index) => {index:{element}} ) 
+function objectsMerge (...z) { 
+    return ({...z}) 
 }
 
 export default objectsMerge;

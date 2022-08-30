@@ -1,18 +1,10 @@
-const taggedTemplate = (texts, ...values) => 
-     texts.map((text, index) => 
-      `<em>${text}</em>${values[index] ? `<strong>${values[index]}</strong>` : ''}`
-    ).join('');
-
-
-const user = {
-    firstName: 'James',
-    lastName: 'Bond',
-    age: '30',
-    nationality: 'American',
-  };
-
-const result = `My name is ${user.firstName} ${user.lastName}, and I'm ${user.age} years old. I'm ${user.nationality}.`;
-console.log(taggedTemplate(result))
+const taggedTemplate = (texts, ...values) => {
+  let result = texts.map((text, index) => `<em>${text}</em>` + `<strong>${values[index]}</strong>`).join('')
+  result = result.replace('undefined', '');
+  result = result.replace('<strong></strong>', '');
+  result = result.replace('<em></em>', '');
+  return result
+}
 
 
 export default taggedTemplate;
